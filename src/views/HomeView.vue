@@ -24,11 +24,80 @@ export default {
     </div>
 </div>
 <div id="about">
-    
+    <div class="gap-container">
+        <img src="../assets/gap.png" alt="" class="gap">
+    </div>
+    <div class="title-1">
+        <p class="hero-title1">IT Проект</p>
+        <div class="title-img-container">
+            <img src="../assets/tu-154.png" alt="" class="title-img">
+        </div>
+    </div>
+    <div class="about-container" style="text-align: center;">
+        <div class="about-text-container">
+            <div class="image-view">
+                <img src="../assets/viewer.png" alt="" class="viewer">
+            </div>
+            <div class="about-text">
+                <p class="aero-innovations-text-style">Мы – команда увлеченных инженеров и дизайнеров из Московского Авиационного Института. Мы стремимся расширить границы аэрокосмических инноваций с помощью передовых цифровых технологий</p>
+            </div>
+        </div>
+    </div>
 </div>
 </template>
 
 <style>
+.about-text-container {
+    margin-top: 10px;
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    align-items: center;
+    gap: 20px;
+}
+.aero-innovations-text-style {
+    font: 500 25px/35px Poppins, sans-serif;
+    color: white;
+    margin-right: 70px;
+}
+.viewer {
+    width: 100%;
+    height: auto;
+}
+.hero-title {
+    padding-top: 15px;
+    margin-bottom: -25px;
+    font: 700 52px/75px Poppins, sans-serif;
+    color: white;
+}
+.about-container {
+    margin-top: 7px;
+    margin-left: 50px;
+    margin-right: 50px;
+    background: rgb(13,165,189);
+    background: linear-gradient(90deg, rgba(13,165,189,1) 10%, rgba(90,75,158,1) 75%);
+    border-radius: 50px;
+}
+.gap-container {
+    text-align: center;
+    margin-top: 25px;
+}
+.gap {
+    width: 80vw;
+    height: auto;   
+}
+.title-img {
+    width: 75vw;
+    height: auto;
+}
+.title-1 {
+    text-align: center;
+}
+.hero-title1 {
+    font: 900 64px/75px Poppins, sans-serif;
+    color: white;
+    margin-bottom: 0px;
+}
 .main-content-container {
     box-sizing: border-box;
     display: flex;
