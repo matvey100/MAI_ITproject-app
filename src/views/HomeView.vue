@@ -30,7 +30,7 @@ export default {
     <div class="title-1">
         <p class="hero-title1">IT Проект</p>
         <div class="title-img-container">
-            <img src="../assets/tu-154.png" alt="" class="title-img">
+            <img src="../assets/plane-header_2.jpeg" alt="" class="title-img">
         </div>
     </div>
     <div class="about-container" style="text-align: center;">
@@ -39,7 +39,65 @@ export default {
                 <img src="../assets/viewer.png" alt="" class="viewer">
             </div>
             <div class="about-text">
-                <p class="aero-innovations-text-style">Мы – команда увлеченных инженеров и дизайнеров из Московского Авиационного Института. Мы стремимся расширить границы аэрокосмических инноваций с помощью передовых цифровых технологий</p>
+                <p class="aero-innovations-text-style">Мы – команда увлеченных инженеров и дизайнеров из Московского Авиационного Института. Мы стремимся расширить границы аэрокосмических инноваций с помощью передовых цифровых технологий.</p>
+                <p class="aero-innovations-text-style">Мы посвятили себя проектированию, моделированию, симуляции и 3D-печати передовых аэрокосмических аппаратов. Используя современное программное обеспечение и технологии 3D-печати, мы стремимся:</p>
+                <div class="about-card-container">
+                    <div class="about-card">Инновации</div>
+                    <div class="about-card">Моделирование</div>
+                    <div class="about-card">Визуализация</div>
+                    <div class="about-card">Прототипирование</div>
+                    <div class="about-card">Конструирование самолётов</div>
+                    <div class="about-card">Разработка дронов</div>
+                    <div class="about-card">Аддитивное производство</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="gap-container">
+    <img src="../assets/gap.png" alt="" class="gap">
+</div>
+<div class="title-1">
+    <p class="hero-title1">Наши проекты</p>
+</div>
+
+<div id="projects" class="container py-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card">
+                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Aircraft">
+                <div class="card-footer">Aircraft Ad5e33</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Сухой Су-27">
+                <div class="card-footer">Сухой Су-<strong>27</strong></div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Aircraft A44e33">
+                <div class="card-footer">Aircraft A44e33</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Aircraft A3we33">
+                <div class="card-footer">Aircraft A3we33</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Aircraft su325i3">
+                <div class="card-footer">Aircraft su325i3</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img src="https://via.placeholder.com/300" class="card-img-top" alt="Aircraft Ad5e33">
+                <div class="card-footer">Aircraft Ad5e33</div>
             </div>
         </div>
     </div>
@@ -47,6 +105,60 @@ export default {
 </template>
 
 <style>
+.card {
+    border-radius: 15px;
+    background: #1b1b3a;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+}
+.card img {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    max-height: 200px;
+    object-fit: cover;
+}
+.card-footer {
+    background: #0a0a23;
+    color: white;
+    font-weight: bold;
+}
+.about-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    margin-bottom: 20px;
+
+}
+.about-card {
+    background: rgb(12,17,44);
+    background: linear-gradient(90deg, rgba(12,17,44,1) 10%, rgba(42,12,102,1) 70%);
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+    font: 500 25px/35px Poppins, sans-serif;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+.about-card:hover {
+    transform: scale(1.1);
+    cursor: default;
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+}
+@media (max-width: 0px) {
+    .about-card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 .about-text-container {
     margin-top: 10px;
     padding-top: 10px;
