@@ -2,18 +2,13 @@
 import { nextTick, onMounted, ref } from "vue";
 const vueRef = ref<any>(null);
 const lights = ref();
-onMounted(() => {
-  // console.log(vueRef.value.camera);
-  // console.log(vue2Ref.value);
-  // vueRef.value.camera.fov = 90
-})
 lights.value=[
   {
     type: "AmbientLight",
     color: "white",
     intensity: 2,
   }
-]
+];
 </script>
 
 <template>
@@ -37,9 +32,9 @@ lights.value=[
         <li class="nav-item">
           <a class="nav-link active nav-text" href="#projects">Наши проекты</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link active nav-text" href="">Наша команда</a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link active nav-text" href="#contacts">Контакты</a>
         </li>
@@ -109,14 +104,14 @@ lights.value=[
   <div class="about-card-container" style="margin-top: 15px; margin-bottom: 35px;">
     <div class="about-card"><a href="#mig-35" style="text-decoration: none; color: white;">МиГ-35</a></div>
   </div>
-  <div class="model" id="#mig-35">
+  <div class="model" id="mig-35">
     <div class="">
       <vue3dLoader
-      filePath="public\models\mig35.fbx"
-      :cameraPosition="{ x: 0, y: 0, z: -11000}"
+      filePath="models/mig35.fbx"
+      :cameraPosition="{ x: 0, y: 0, z: -15000}"
       ref="vueRef"
       :height="500"
-      :backgroundColor="'#141414'"
+      :backgroundColor="'#0a0a0a'"
       :lights="lights"
       />
     </div>
