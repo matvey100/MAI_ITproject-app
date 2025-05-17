@@ -1,12 +1,45 @@
 <script  setup lang="ts">
 import { nextTick, onMounted, ref } from "vue";
 const vueRef = ref<any>(null);
-const lights = ref();
-lights.value=[
+const lights_mig35 = ref();
+lights_mig35.value=[
   {
     type: "AmbientLight",
     color: "white",
-    intensity: 2,
+    intensity: 1.7,
+  },
+  {
+    type: "point",
+    color: "#ffffff",
+    position: { x: 0, y: 0, z: 500 },
+    intensity: 0.1
+  }]
+const lights_su25 = ref();
+lights_su25.value=[
+  {
+    type: "AmbientLight",
+    color: "white",
+    intensity: 2.25,
+  },
+  {
+    type: "point",
+    color: "#ffffff",
+    position: { x: 0, y: 0, z: 500 },
+    intensity: 0.35
+  }
+];
+const lights_mirage = ref();
+lights_mirage.value=[
+  {
+    type: "AmbientLight",
+    color: "white",
+    intensity: 1.75,
+  },
+  {
+    type: "point",
+    color: "#ffffff",
+    position: { x: 0, y: 0, z: 500 },
+    intensity: 0.25
   }
 ];
 </script>
@@ -66,28 +99,26 @@ lights.value=[
         <img src="./assets/gap.png" alt="" class="gap">
     </div>
     <div class="title-1">
-        <p class="hero-title1">IT Проект</p>
-        <div class="title-img-container">
-            <img src="./assets/plane-header_2.jpeg" alt="" class="title-img">
-        </div>
+        <p class="hero-title1">О нас</p>
     </div>
     <div class="about-container" style="text-align: center;">
-        <div class="about-text-container">
-            <div class="image-view">
+        <div class="">
+            <!-- <div class="image-view">
                 <img src="./assets/viewer.png" alt="" class="viewer">
-            </div>
+            </div> -->
             <div class="about-text">
-                <p class="aero-innovations-text-style">Мы – команда увлеченных инженеров и дизайнеров из Московского Авиационного Института. Мы стремимся расширить границы аэрокосмических инноваций с помощью передовых цифровых технологий.</p>
-                <p class="aero-innovations-text-style">Мы посвятили себя проектированию, моделированию, симуляции и 3D-печати передовых аэрокосмических аппаратов. Используя современное программное обеспечение и технологии 3D-печати, мы стремимся:</p>
-                <div class="about-card-container">
-                    <div class="about-card">Инновации</div>
-                    <div class="about-card">Моделирование</div>
-                    <div class="about-card">Визуализация</div>
-                    <div class="about-card">Прототипирование</div>
-                    <div class="about-card">Конструирование самолётов</div>
-                    <div class="about-card">Разработка дронов</div>
-                    <div class="about-card">Аддитивное производство</div>
-                </div>
+                <p class="aero-innovations-text-style">
+                    Добро пожаловать на сайт проекта "Анимация подвижных частей летательных аппаратов"! 
+                    Здесь вы можете найти 3D-модели различных самолетов и наглядно увидеть работу закрылков, 
+                    элеронов, рулей высоты и других механизмов, которые обеспечивают управление летательным аппаратом.
+                </p>
+                <p class="aero-innovations-text-style">
+                    В нашем проекте используются технологии 3D-визуализации,  
+                    что делает изучение авиации более наглядным, увлекательным и эффективным.
+                </p>
+                <p class="aero-innovations-text-style">
+                   Присоединяйтесь к нам и открывайте удивительный мир авиационных технологий!
+                </p>
             </div>
         </div>
     </div>
@@ -98,28 +129,76 @@ lights.value=[
 </div>
 <div class="title-1">
     <p class="hero-title1">Наши проекты</p>
+    <p style="color: gray;">Время загрузки моделей окло минуты, пожалуйста подождите.</p>
 </div>
 
 <div id="projects" class="">
   <div class="about-card-container" style="margin-top: 15px; margin-bottom: 35px;">
+    <div class="about-card"><a href="#su-25" style="text-decoration: none; color: white;">Су-25</a></div>
     <div class="about-card"><a href="#mig-35" style="text-decoration: none; color: white;">МиГ-35</a></div>
+    <div class="about-card"><a href="#mirage-2000" style="text-decoration: none; color: white;">Mirage 2000</a></div>
+  </div>
+  <div class="model" id="su-25">
+    <div class="">
+      <vue3dLoader
+      filePath="models/su25.fbx"
+      :cameraPosition="{ x: 1250, y: 250, z: 500}"
+      :position="{ x: -400, y: 0, z: 0}"
+      ref="vueRef"
+      :height="500"
+      :backgroundColor="'#0a0a0a'"
+      :lights="lights_su25"
+      :pointLightFollowCamera="true"
+      />
+    </div>
+    <div class="title-2">
+      <p class="hero-title2">Су-25</p>
+      <p class="aero-innovations-text-style-2">
+        Су-25 — бронированный дозвуковой самолёт-штурмовик. Предназначен для оказания непосредственной авиационной поддержки войскам в ходе боевых действий днём и ночью при визуальной видимости цели, а также для круглосуточного поражения объектов с известными координатами в любых метеорологических условиях.
+        В войсках Су-25 получил прозвище «Грач». По одной из версий, в честь птицы рода воронов советский штурмовик назвали лётчики. Сходство с грачом, по мнению пилотов, самолёту придавали его форма с необычным широким крылом и толстыми мотогондолами по бокам от фюзеляжа.
+        В настоящее время различные варианты Су-25 находятся на вооружении ВВС России, Украины, Белоруссии, Грузии, Узбекистана, Чехии, Словакии, Болгарии, Анголы, Афганистана, КНДР и Ирака и других стран.
+        </p>
+      <p class="aero-innovations-text-style-2"><img src="./assets/user-svgrepo-com.svg" alt="" style="width: 25px; margin-bottom: 5px;"> Модель разработали: Улыбин Егор, Старикова Дарья</p>
+    </div>
   </div>
   <div class="model" id="mig-35">
     <div class="">
       <vue3dLoader
       filePath="models/mig35.fbx"
-      :cameraPosition="{ x: 0, y: 0, z: -15000}"
+      :cameraPosition="{ x: 5750, y: 3000, z: -11000}"
       ref="vueRef"
       :height="500"
       :backgroundColor="'#0a0a0a'"
-      :lights="lights"
+      :lights="lights_mig35"
+      :pointLightFollowCamera="true"
       />
     </div>
     <div class="title-2">
       <p class="hero-title2">МиГ-35</p>
-      <p class="aero-innovations-text-style">МиГ-35 — российский многоцелевой истребитель поколения 4++, разработанный ОАО «РСК МиГ» на базе МиГ-29. Предназначен для завоевания превосходства в воздухе и нанесения ударов по наземным и морским целям в любых погодных условиях. Оснащён современной авионикой, радиолокационной станцией с активной фазированной антенной решёткой (АФАР), улучшенными системами наведения и защиты. Отличается высокой манёвренностью, боевой эффективностью и возможностью применения широкого спектра вооружений. МиГ-35 ориентирован как на российские ВКС, так и на экспорт.
+      <p class="aero-innovations-text-style-2">МиГ-35 — российский многоцелевой истребитель поколения 4++, разработанный ОАО «РСК МиГ» на базе МиГ-29. Предназначен для завоевания превосходства в воздухе и нанесения ударов по наземным и морским целям в любых погодных условиях. Оснащён современной авионикой, радиолокационной станцией с активной фазированной антенной решёткой (АФАР), улучшенными системами наведения и защиты. Отличается высокой манёвренностью, боевой эффективностью и возможностью применения широкого спектра вооружений. МиГ-35 ориентирован как на российские ВКС, так и на экспорт.
       </p>
       <p class="aero-innovations-text-style-2"><img src="./assets/user-svgrepo-com.svg" alt="" style="width: 25px; margin-bottom: 5px;"> Модель разработал: Минайлов Пётр</p>
+    </div>
+  </div>
+  <div class="model" id="mirage-2000">
+    <div class="">
+      <vue3dLoader
+      filePath="models/mirage.fbx"
+      :cameraPosition="{ x: 1000, y: 250, z: 700}"
+      ref="vueRef"
+      :height="500"
+      :backgroundColor="'#0a0a0a'"
+      :lights="lights_mirage"
+      :pointLightFollowCamera="true"
+      />
+    </div>
+    <div class="title-2">
+      <p class="hero-title2">Dassault Mirage 2000</p>
+      <p class="aero-innovations-text-style-2">Dassault Mirage 2000 — французский многоцелевой истребитель четвёртого поколения. Разработан в 1970-х годах фирмой «Дассо». На вооружении с 1984 года. Основной боевой самолёт ВВС Франции в конце XX — начале XXI века. Состоит на вооружении нескольких стран Азии, Европы и Латинской Америки.
+Вооружён двумя пушками калибра 30 мм с боекомплектом в 125 снарядов на каждую. У самолёта девять точек подвески: пять — под фюзеляжем и четыре — под крылом. Может нести до четырёх ракет «воздух-земля», четыре-шесть ракет класса «воздух-воздух», четыре блока неуправляемых ракет, а также корректируемые или свободнопадающие бомбы.
+Также самолёт может быть оснащён подвесными топливными баками для увеличения дальности полёта.
+      </p>
+      <p class="aero-innovations-text-style-2"><img src="./assets/user-svgrepo-com.svg" alt="" style="width: 25px; margin-bottom: 5px;"> Модель разработал: Улыбин Егор</p>
     </div>
   </div>
 </div>
@@ -152,16 +231,25 @@ lights.value=[
   padding-top: 100px;
 } */
 
+.about-text {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 3px;
+}
+
 .title-2 {
   text-align: center;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .aero-innovations-text-style-2 {
   font: 500 20px/35px Poppins, sans-serif;
   color: white;
-  margin-right: 70px;
+  /* margin-right: 70px; */
+  text-align: justify;
 }
 
 .hero-title2 {
@@ -228,14 +316,15 @@ lights.value=[
     margin-top: 10px;
     padding-top: 10px;
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 0.5fr 5fr;
     align-items: center;
-    gap: 20px;
+    gap: px;
 }
 .aero-innovations-text-style {
     font: 500 25px/35px Poppins, sans-serif;
     color: white;
-    margin-right: 70px;
+    margin-right: 10px;
+    
 }
 .viewer {
     width: 100%;
@@ -248,11 +337,11 @@ lights.value=[
     color: white;
 }
 .about-container {
-    margin-top: 7px;
-    margin-left: 50px;
-    margin-right: 50px;
-    background: rgb(13,165,189);
-    background: linear-gradient(90deg, rgba(13,165,189,1) 10%, rgba(90,75,158,1) 75%);
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: rgb(13,165,189, 0.5);
+    background: linear-gradient(90deg, rgba(13,165,189, 0.5) 10%, rgba(90,75,158, 0.5) 75%);
     border-radius: 50px;
 }
 .gap-container {
