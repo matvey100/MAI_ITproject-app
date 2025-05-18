@@ -42,6 +42,55 @@ lights_mirage.value=[
     intensity: 0.25
   }
 ];
+const lights_geran = ref();
+lights_geran.value=[
+  {
+    type: "AmbientLight",
+    color: "white",
+    intensity: 1.25,
+  },
+  {
+    type: "point",
+    color: "#ffffff",
+    position: { x: 0, y: 0, z: 50 },
+    intensity: 0.1
+  }
+];
+const lights_boeing777 = ref();
+lights_boeing777.value=[
+  {
+    type: "AmbientLight",
+    color: "white",
+    intensity: 1,
+  }
+];
+const lights_an225 = ref();
+lights_an225.value=[
+  {
+    type: "AmbientLight",
+    color: "white",
+    intensity: 0.6,
+  },
+  {
+    type: "point",
+    color: "#ffffff",
+    position: { x: 0, y: 0, z: 500 },
+    intensity: 0.01
+  }
+];
+const lights_su30 = ref();
+lights_su30.value=[
+  {
+    type: "AmbientLight",
+    color: "white",
+    intensity: 1.2,
+  },
+  {
+    type: "point",
+    color: "#ffffff",
+    position: { x: 0, y: 0, z: 500 },
+    intensity: 0.2
+  }]
 </script>
 
 <template>
@@ -129,7 +178,7 @@ lights_mirage.value=[
 </div>
 <div class="title-1">
     <p class="hero-title1">Наши проекты</p>
-    <p style="color: gray;">Время загрузки моделей окло минуты, пожалуйста подождите.</p>
+    <p style="color: gray;">Время загрузки моделей займёт несколько минут, пожалуйста подождите.</p>
 </div>
 
 <div id="projects" class="">
@@ -137,7 +186,12 @@ lights_mirage.value=[
     <div class="about-card"><a href="#su-25" style="text-decoration: none; color: white;">Су-25</a></div>
     <div class="about-card"><a href="#mig-35" style="text-decoration: none; color: white;">МиГ-35</a></div>
     <div class="about-card"><a href="#mirage-2000" style="text-decoration: none; color: white;">Mirage 2000</a></div>
+    <div class="about-card"><a href="#geran" style="text-decoration: none; color: white;">БПЛА «Герань»</a></div>
+    <div class="about-card"><a href="#boeing-777" style="text-decoration: none; color: white;">Boeing 777</a></div>
+    <div class="about-card"><a href="#an-225" style="text-decoration: none; color: white;">Ан-225</a></div>
+    <div class="about-card"><a href="#su-30" style="text-decoration: none; color: white;">Су-30</a></div>
   </div>
+
   <div class="model" id="su-25">
     <div class="">
       <vue3dLoader
@@ -149,6 +203,8 @@ lights_mirage.value=[
       :backgroundColor="'#0a0a0a'"
       :lights="lights_su25"
       :pointLightFollowCamera="true"
+      :minDistance="750"
+      :maxDistance="2000"
       />
     </div>
     <div class="title-2">
@@ -158,9 +214,10 @@ lights_mirage.value=[
         В войсках Су-25 получил прозвище «Грач». По одной из версий, в честь птицы рода воронов советский штурмовик назвали лётчики. Сходство с грачом, по мнению пилотов, самолёту придавали его форма с необычным широким крылом и толстыми мотогондолами по бокам от фюзеляжа.
         В настоящее время различные варианты Су-25 находятся на вооружении ВВС России, Украины, Белоруссии, Грузии, Узбекистана, Чехии, Словакии, Болгарии, Анголы, Афганистана, КНДР и Ирака и других стран.
         </p>
-      <p class="aero-innovations-text-style-2"><img src="./assets/user-svgrepo-com.svg" alt="" style="width: 25px; margin-bottom: 5px;"> Модель разработали: Улыбин Егор, Старикова Дарья</p>
+      <p class="aero-innovations-text-style-2"><img src="./assets/user-svgrepo-com.svg" alt="" style="width: 25px; margin-bottom: 5px;"> Модель разработали: <b>Улыбин Егор, Старикова Дарья</b></p>
     </div>
   </div>
+
   <div class="model" id="mig-35">
     <div class="">
       <vue3dLoader
@@ -171,15 +228,18 @@ lights_mirage.value=[
       :backgroundColor="'#0a0a0a'"
       :lights="lights_mig35"
       :pointLightFollowCamera="true"
+      :minDistance="10000"
+      :maxDistance="20000"
       />
     </div>
     <div class="title-2">
       <p class="hero-title2">МиГ-35</p>
       <p class="aero-innovations-text-style-2">МиГ-35 — российский многоцелевой истребитель поколения 4++, разработанный ОАО «РСК МиГ» на базе МиГ-29. Предназначен для завоевания превосходства в воздухе и нанесения ударов по наземным и морским целям в любых погодных условиях. Оснащён современной авионикой, радиолокационной станцией с активной фазированной антенной решёткой (АФАР), улучшенными системами наведения и защиты. Отличается высокой манёвренностью, боевой эффективностью и возможностью применения широкого спектра вооружений. МиГ-35 ориентирован как на российские ВКС, так и на экспорт.
       </p>
-      <p class="aero-innovations-text-style-2"><img src="./assets/user-svgrepo-com.svg" alt="" style="width: 25px; margin-bottom: 5px;"> Модель разработал: Минайлов Пётр</p>
+      <p class="aero-innovations-text-style-2"><img src="./assets/user-svgrepo-com.svg" alt="" style="width: 25px; margin-bottom: 5px;"> Модель разработал: <b>Минайлов Пётр</b></p>
     </div>
   </div>
+
   <div class="model" id="mirage-2000">
     <div class="">
       <vue3dLoader
@@ -190,6 +250,8 @@ lights_mirage.value=[
       :backgroundColor="'#0a0a0a'"
       :lights="lights_mirage"
       :pointLightFollowCamera="true"
+      :minDistance="750"
+      :maxDistance="2000"
       />
     </div>
     <div class="title-2">
@@ -198,11 +260,105 @@ lights_mirage.value=[
 Вооружён двумя пушками калибра 30 мм с боекомплектом в 125 снарядов на каждую. У самолёта девять точек подвески: пять — под фюзеляжем и четыре — под крылом. Может нести до четырёх ракет «воздух-земля», четыре-шесть ракет класса «воздух-воздух», четыре блока неуправляемых ракет, а также корректируемые или свободнопадающие бомбы.
 Также самолёт может быть оснащён подвесными топливными баками для увеличения дальности полёта.
       </p>
-      <p class="aero-innovations-text-style-2"><img src="./assets/user-svgrepo-com.svg" alt="" style="width: 25px; margin-bottom: 5px;"> Модель разработал: Улыбин Егор</p>
+      <p class="aero-innovations-text-style-2"><img src="./assets/user-svgrepo-com.svg" alt="" style="width: 25px; margin-bottom: 5px;"> Модель разработал: <b>Улыбин Егор</b></p>
+    </div>
+  </div>
+
+  <div class="model" id="geran">
+    <div class="">
+      <vue3dLoader
+      filePath="models/geran.fbx"
+      :cameraPosition="{ x: -200, y: 200, z: 350}"
+      ref="vueRef"
+      :height="500"
+      :backgroundColor="'#0a0a0a'"
+      :lights="lights_geran"
+      :pointLightFollowCamera="true"
+      :minDistance="250"
+      :maxDistance="750"
+      />
+    </div>
+    <div class="title-2">
+      <p class="hero-title2">БПЛА «Герань»</p>
+      <p class="aero-innovations-text-style-2">Shahed 131 или же Герань-1 (для дронов, состоящих на вооружении Российской армии) — иранский БПЛА-камикадзе или же барражирующий боеприпас, наиболее широкое применение которого началось с октября 2022 года. Он оснащён двигателем модели Shahed-783/788. Масса боевой части 15 кг, а дальность полёта около 900 км.
+      </p>
+      <p class="aero-innovations-text-style-2"><img src="./assets/user-svgrepo-com.svg" alt="" style="width: 25px; margin-bottom: 5px;"> Модель разработали: <b>Минайлов Пётр, Каюмов Матвей</b></p>
     </div>
   </div>
 </div>
 </div>
+
+<div class="model" id="boeing-777">
+    <div class="">
+      <vue3dLoader
+      filePath="models/777.dae"
+      :cameraPosition="{ x: 50, y: 25, z: 25}"
+      ref="vueRef"
+      :height="500"
+      :backgroundColor="'#0a0a0a'"
+      :lights="lights_boeing777"
+      :minDistance="35"
+      :maxDistance="100"
+      />
+    </div>
+    <div class="title-2">
+      <p class="hero-title2">Boeing 777</p>
+      <p class="aero-innovations-text-style-2">Boeing 777 — семейство двухдвигательных широкофюзеляжных пассажирских самолётов для авиалиний большой протяжённости. Самолёты семейства входят в число самых крупных пассажирских воздушных судов.
+Boeing 777 — двухмоторный турбореактивный низкоплан со стреловидным крылом и однокилевым оперением. Он является первым самолётом, полностью разработанным без бумажных чертежей, а только с использованием трёхмерной компьютерной графики.
+      </p>
+      <p class="aero-innovations-text-style-2"><img src="./assets/user-svgrepo-com.svg" alt="" style="width: 25px; margin-bottom: 5px;"> Модель разработала: <b>Коротина Василиса</b></p>
+    </div>
+</div>
+
+<div class="model" id="an-225">
+    <div class="">
+      <vue3dLoader
+      filePath="models/225-5.fbx"
+      :cameraPosition="{ x: -5000, y: 2000, z: -4000}"
+      ref="vueRef"
+      :height="500"
+      :backgroundColor="'#0a0a0a'"
+      :lights="lights_an225"
+      :pointLightFollowCamera="true"
+      :minDistance="4000"
+      :maxDistance="10000"
+      />
+    </div>
+    <div class="title-2">
+      <p class="hero-title2">Ан-225</p>
+      <p class="aero-innovations-text-style-2">Ан-225 — советский транспортный реактивный самолёт сверхбольшой грузоподъёмности разработки ОКБ имени О. К. Антонова.
+
+Первый полёт был совершён 21 декабря 1988 года. Самолёт создавался как элемент авиационной транспортной системы для советской космической программы «Энергия — Буран».
+
+Единственный лётный экземпляр Ан-225 был разрушен в ангаре 25 февраля 2022 года в ходе боевых действий.</p>
+      <p class="aero-innovations-text-style-2"><img src="./assets/user-svgrepo-com.svg" alt="" style="width: 25px; margin-bottom: 5px;"> Модель разработал: <b>Цуканов Иван</b></p>
+    </div>
+</div>
+
+<div class="model" id="su-30">
+    <div class="">
+      <vue3dLoader
+      filePath="models/su30.fbx"
+      :cameraPosition="{ x: 1250, y: 750, z: 750}"
+      ref="vueRef"
+      :height="500"
+      :backgroundColor="'#0a0a0a'"
+      :lights="lights_su30"
+      :pointLightFollowCamera="true"
+      :minDistance="1200"
+      :maxDistance="2500"
+      />
+    </div>
+    <div class="title-2">
+      <p class="hero-title2">Су-30</p>
+      <p class="aero-innovations-text-style-2">Су-30 — советский и российский двухместный многоцелевой истребитель поколения 4+. Предназначен для уничтожения воздушных целей в простых и сложных метеорологических условиях, блокирования вражеских аэродромов и управления групповыми боевыми действиями при завоевании господства в воздухе.
+
+Разработка самолёта началась в 1988 году на базе Конструкторского бюро Сухого. Основой для Су-30 послужил учебно-боевой истребитель Су-27. Работы велись на Иркутском производственном объединении и завершились в 1992 году.
+
+Су-30 предполагает наличие двух пилотов, что вместе с новой системой управления истребителями в группе позволяло более эффективно использовать сразу несколько самолётов. Кроме того, истребитель оснащён системой дозаправки в воздухе.</p>
+      <p class="aero-innovations-text-style-2"><img src="./assets/user-svgrepo-com.svg" alt="" style="width: 25px; margin-bottom: 5px;"> Модель разработал: <b>Каюмов Матвей</b></p>
+    </div>
+  </div>
 
 <div class="AppFooter" id="contacts">
   <div class="footer-container">
@@ -214,6 +370,7 @@ lights_mirage.value=[
             <img src="./assets/vk.png" class="image-container-with-text" />
         </div>
         <p class="social-media-conversation-tracking">Следите за нами в социальных сетях</p>
+        <p style="color: gray; margin-top: 15px;">© Матвей Севастьянов, Мойо Онест Мпуме<br>2025</p>
     </div>
 </div>
 </div>

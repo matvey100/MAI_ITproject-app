@@ -5,3 +5,5 @@ module.exports = defineConfig({
     ? '/MAI_ITproject-app/'
     : '/'
 })
+
+// git subtree push --prefix dist origin gh-pages
