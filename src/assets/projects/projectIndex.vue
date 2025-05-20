@@ -10,6 +10,11 @@ import an225 from "./an225.vue";
 import su30 from "./su30.vue";
 import yak38 from "./yak38.vue";
 import lancet from "./lancet.vue";
+import tahion from "./tahion.vue";
+import reys from "./reys.vue";
+import j10 from "./j10.vue";
+import an2 from "./an2.vue";
+import tu144 from "./tu144.vue";
 
 const menu = ref();
 menu.value = [
@@ -22,13 +27,19 @@ menu.value = [
     {id: 7, name: "Су-30"},
     {id: 8, name: "Як-38"},
     {id: 9, name: "БПЛА «Ланцет»"},
+    {id: 10, name: "БПЛА «Тахион»"},
+    {id: 11, name: "БПЛА Ту-143 «Рейс»"},
+    {id: 12, name: "Chengdu J-10"},
+    {id: 13, name: "Ан-2"},
+    {id: 14, name: "Ту-144"},
+
 ];
 
 function getRandomNumber(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 const currentMenuId = ref(getRandomNumber(1, menu.value.length));
-// const currentMenuId = ref(1);
+// const currentMenuId = ref(14);
 
 function getMenuId(id: number) {
   currentMenuId.value = id;
@@ -57,6 +68,11 @@ function getMenuId(id: number) {
     <su30 v-if="currentMenuId === 7"/>
     <yak38 v-if="currentMenuId === 8"/>
     <lancet v-if="currentMenuId === 9"/>
+    <tahion v-if="currentMenuId === 10"/>
+    <reys v-if="currentMenuId === 11"/>
+    <j10 v-if="currentMenuId === 12"/>
+    <an2 v-if="currentMenuId === 13"/>
+    <tu144 v-if="currentMenuId === 14"/>
     </div>
 </template>
 

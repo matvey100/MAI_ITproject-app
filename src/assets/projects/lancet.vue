@@ -21,7 +21,7 @@ lights_lancet.value=[
     <div class="model" id="su-25">
         <div class="">
         <vue3dLoader
-        filePath="models/lancet.fbx"
+        filePath="models/lancet-1.fbx"
         :cameraPosition="{ x: 1700, y: 750, z: 1000}"
         ref="vueRef"
         :height="500"
